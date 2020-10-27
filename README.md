@@ -65,7 +65,7 @@ First, uncomment the `console.log` under Deliverable 3 in the `index.js` file to
 Create a DOM element that looks like this for each player and append it to the `div.player-container`:
 
 ```html
-<div class="player" data-number="(Player Number)">
+<div class="player" data-number="{player number}">
   <h3>
     {player name} (<em>{player nickname}</em>)
   </h3>
