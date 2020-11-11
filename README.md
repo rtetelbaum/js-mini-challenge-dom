@@ -28,10 +28,10 @@ A note on notation: when you see an element like `h1#header` in the Readme, that
 <h1 id="header">Some text here</h1>
 ```
 
-And `div.players-container` looks like this (note the CSS class selector syntax):
+And `div.player` looks like this (note the CSS class selector syntax):
 
 ```html
-<div class="player-container">
+<div class="player">
   <!-- child elements here -->
 </div>
 ```
@@ -58,22 +58,11 @@ Now that you have access to the `h1#header` element, use Javascript to change th
 
 ## Deliverable 3
 
-Now that we've got a beautiful red header, we can show some players on the page. The player data is stored in a variable called `PLAYERS` in the `data.js` file - you can still access that variable in your `index.js` file (see if you can figure out why!).
+Now that we've got a beautiful red header, we can show some player data on the page. The player data is stored in a variable called `player` in the `data.js` file - you can still access that variable in your `index.js` file (see if you can figure out why!).
 
-First, uncomment the `console.log` under Deliverable 3 in the `index.js` file to see the data in the console. *For each* player in our application, we want to render their information on the DOM inside the `div#player-container` element. 
+First, uncomment the `console.log` under Deliverable 3 in the `index.js` file to see the data in the console. 
 
-Create a DOM element that looks like this for each player and append it to the `div.player-container`:
-
-```html
-<div class="player" data-number="{player number}">
-  <h3>
-    {player name} (<em>{player nickname}</em>)
-  </h3>
-  <img src="{player image}" alt="{player name}">
-</div>
-```
-
-> If you need a hint on the 'data-number' attribute, have a look at this [MDN article on using data-* attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+Using the `player` object, update the DOM to show the player's *name*, *nickname*, and *photo* in the appropriate places. For the `<img>` tag, make sure to update the `src` attribute *and* the `alt` attribute (it's important for accessibility).
 
 **YOUR NOTES**
 ```
@@ -82,9 +71,28 @@ Create a DOM element that looks like this for each player and append it to the `
 
 ## Deliverable 4
 
-Uh-oh! A Manchester City player, Raheem Sterling, snuck into our list. Use Javascript to find the element with the `[data-number='7']` attribute, and remove that element from the page.
+We also want to show some of the best goals for our player. You'll notice that within the `player` object, there's a `goals` property that contains an array of goal videos. *For each* of the goal videos, create a DOM element that looks like this and add it to the `ul#goals`:
 
-Hint: You can use `querySelector` with [CSS Attribute Selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to find an element with a specific data-number. 
+```js
+<li data-id="{goal id}">
+  <p>{goal description}</p>
+  <a href="{goal link}" target="_blank">{goal link}</a>
+</li>
+```
+
+**NOTE**: The `data-id` attribute is a custom property known as a "dataset attribute". They're useful for adding additional data to the DOM that doesn't have any effect on CSS of what the user sees - they're purely meant as tools for Javascript developers. We'll use this `data-id` attribute in the next deliverable.
+
+For more info on `data-*` attributes, have a look at this [MDN article on using dataset attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+
+## Deliverable 5
+
+Uh-oh! Another player's goal has snuck into our list. While it's certainly a [great goal](https://youtu.be/WLm-YK5Yfv0), it doesn't belong on the list with the rest of Mo Salah's goals. 
+
+Since you gave each `<li>` a `data-id` attribute in the last deliverable, we can use that information to find the goal we're looking for. 
+
+Use Javascript to find the element with the `[data-id='3']` attribute, and *remove* that element from the page.
+
+> Hint: You can use `querySelector` with [CSS Attribute Selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to find an element with a specific data-id. 
 
 **YOUR NOTES**
 ```
