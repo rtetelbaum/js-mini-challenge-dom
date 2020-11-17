@@ -31,9 +31,15 @@ A note on notation: when you see an element like `h1#header` in the Readme, that
 And `div.player` looks like this (note the CSS class selector syntax):
 
 ```html
-<div class="player">
-  <!-- child elements here -->
-</div>
+  <div class="player">
+    <img src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg" alt="{player name}">
+    <h2>{Player Name}</h2>
+    <em>{Player Nickname}</em>
+    <h4>Great Goals</h4>
+    <ul id="goals">
+      <!-- add links to goals here -->
+    </ul>
+  </div>
 ```
 
 ## Deliverable 1
